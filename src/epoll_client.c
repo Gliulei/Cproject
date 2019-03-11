@@ -67,7 +67,9 @@ handle_events(int epollfd, struct epoll_event *events, int num, int sockfd, char
     int fd;
     int i;
     for (i = 0; i < num; i++) {
+        printf('i is %d',i);
         fd = events[i].data.fd;
+        printf('fd is %d',fd);
         if (events[i].events & EPOLLIN)
             do_read(epollfd, fd, sockfd, buf);
         else if (events[i].events & EPOLLOUT)
