@@ -97,9 +97,9 @@ handle_events(int epollfd, struct epoll_event *events, int num, int listenfd, ch
     int fd;
     //进行选好遍历
     for (i = 0; i < num; i++) {
-        printf("i is %d",i);
+        printf("i is %d\n",i);
         fd = events[i].data.fd;
-        printf("fd is %d",fd);
+        printf("fd is %d\n",fd);
         //根据描述符的类型和事件类型进行处理
         if ((fd == listenfd) && (events[i].events & EPOLLIN))
             handle_accpet(epollfd, listenfd);
