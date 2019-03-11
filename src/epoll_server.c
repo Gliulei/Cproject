@@ -145,6 +145,7 @@ static void do_read(int epollfd, int fd, char *buf) {
 static void do_write(int epollfd, int fd, char *buf) {
     int nwrite;
     nwrite = write(fd, buf, strlen(buf));
+    printf("nwrite is : %d\n", nwrite);
     if (nwrite == -1) {
         perror("write error:");
         close(fd);
