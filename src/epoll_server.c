@@ -86,8 +86,8 @@ static void do_epoll(int listenfd) {
     for (;;) {
         //获取已经准备好的描述符事件
         ret = epoll_wait(epollfd, events, EPOLLEVENTS, -1);
-        printf("%d ret",ret);
-        sleep(5);
+        printf("ret is %d\n",ret);
+        sleep(20);
         handle_events(epollfd, events, ret, listenfd, buf);
     }
     close(epollfd);
