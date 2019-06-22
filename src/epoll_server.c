@@ -86,8 +86,6 @@ static void do_epoll(int listenfd) {
     for (;;) {
         //获取已经准备好的描述符事件
         ret = epoll_wait(epollfd, events, EPOLLEVENTS, -1);
-        printf("ret is %d\n",ret);
-        sleep(20);
         handle_events(epollfd, events, ret, listenfd, buf);
     }
     close(epollfd);
@@ -129,6 +127,8 @@ static void handle_accpet(int epollfd, int listenfd) {
 static void do_read(int epollfd, int fd, char *buf) {
     int nread;
     nread = read(fd, buf, MAXSIZE);
+    printf("nread is %d\n",nread);
+    sleep(20);
     if (nread == -1) {
         perror("read error:");
         close(fd);
